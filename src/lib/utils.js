@@ -1,0 +1,24 @@
+import jwt from "jsonwebtoken"
+
+// When user click on a button tirggers a request and client send like api/auth/signup or login  
+// then create a user in database
+// (And also generate JWT token) Then at the same time it also sent back the JWT generated token to the  in cookies
+export const genrateTokens =(userId, res)=>{
+    const { JWT_SECRET } = process.env;
+  if (!JWT_SECRET) {
+    throw new Error("JWT_SECRET is not configured");
+  }
+const token=jwt.sign({userId},JWT_SECRET,{
+    expiresIn:"7d"
+})
+
+// And also generate JWT token (Then at the same time it also sent back the JWT generated token to the  in cookies)
+res.cookie("jwt",token,{
+    maxAge:7*24*60*60*1000,//milliseconds
+    httpOnly:true,//prevent XSS attack: Cross-Site Scripting(this token avaliable only httponly no javascript)
+    sameSite:"strict",//CSRF Attack
+    secure:process.env.NODE_ENV === "devlopment" ?false:true,
+})
+
+return token
+}
