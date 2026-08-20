@@ -4,7 +4,11 @@ import jwt from "jsonwebtoken"
 // then create a user in database
 // (And also generate JWT token) Then at the same time it also sent back the JWT generated token to the  in cookies
 export const genrateTokens =(userId, res)=>{
-const token=jwt.sign({userId},process.env.JWT_SECRET,{
+    const { JWT_SECRET } = process.env;
+  if (!JWT_SECRET) {
+    throw new Error("JWT_SECRET is not configured");
+  }
+const token=jwt.sign({userId},JWT_SECRET,{
     expiresIn:"7d"
 })
 

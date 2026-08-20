@@ -30,21 +30,22 @@ export const signup = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newSUser = new User({
+    const newUser = new User({
       fullName,
       email,
       password: hashedPassword,
     });
 
-    if (newSUser) {
-      genrateTokens(newSUser._id, res);
-      await newSUser.save();
+    if (newUser) {
+      const savedUser=await newUser.save();
+      genrateTokens(savedUser._id, res);
+      
 
       res.status(201).json({
-        _id: newSUser._id,
-        fullName: newSUser.fullName,
-        email: newSUser.email,
-        profilePic: newSUser.profilePic,
+        _id: newUser._id,
+        fullName: newUser.fullName,
+        email: newUser.email,
+        profilePic: newUser.profilePic,
       });
     } else {
       res.status(400).json({ message: "Invalid User" });
