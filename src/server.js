@@ -1,15 +1,14 @@
 import express from "express"
-import dotenv from "dotenv"
-dotenv.config();
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
 import { dbconnect } from "./lib/db.js";
 import cors from "cors"
+import { ENV } from "./lib/env.js";
 
 const app=express();
 dbconnect();
 
-const PORT=process.env.PORT
+const PORT=ENV.PORT
 
 app.use(cors())
 app.use(express.json())
