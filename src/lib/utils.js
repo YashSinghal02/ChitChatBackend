@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken"
+import { ENV } from "./env.js";
 
 // When user click on a button tirggers a request and client send like api/auth/signup or login  
 // then create a user in database
@@ -17,7 +18,7 @@ res.cookie("jwt",token,{
     maxAge:7*24*60*60*1000,//milliseconds
     httpOnly:true,//prevent XSS attack: Cross-Site Scripting(this token avaliable only httponly no javascript)
     sameSite:"strict",//CSRF Attack
-    secure:process.env.NODE_ENV === "devlopment" ?false:true,
+    secure:ENV.NODE_ENV === "devlopment" ?false:true,
 })
 
 return token
