@@ -91,7 +91,7 @@ export const login = async (req, res) => {
     if (!isPasswordCorret) {
       return res.status(400).json({ message: "Incorrect Password" });
     }
-
+// If every validation works correct then it extract the user ID from the mongo DB
     genrateTokens(user._id, res);
     // Get the created  suer form Mongo DB
     res.status(200).json({

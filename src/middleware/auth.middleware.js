@@ -32,12 +32,12 @@ export const protectRoute=async (req,res,next) => {
 }
 
 
-// Basically, user sends an updated request in theserver. Before request reach to server it go to the protected route, where it check whether the user token exist or not if not then show 401 Unauthorized
+// Basically, user sends an updated request in the server. Before request reach to server it go to the protected route, where it check whether the user token exist or not if not then show 401 Unauthorized
 // If the token exists, jwt.verify() verifies and decodes the token.
 // If the token is invalid or expired → 401 Unauthorized.
 // From the decoded token, we get the userId.
 // We use that userId to find the user in MongoDB:
 // .select("-password") means we don't retrieve the password.
-// If the user doesn't exist → 401 Unauthorized.
+// If the user doesn't exist → 401 User Not found.
 // If everything is valid, we can this user in next function
 // If all ok then call the next function
