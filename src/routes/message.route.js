@@ -1,18 +1,18 @@
 import express from "express"
+import { getAllContacts,getMessagesByUserId,sendMessage,getChatPartners } from "../controllers/message.controller.js";
+import { protectRoute } from "../middleware/auth.middleware.js";
+import { arcjetProtection } from "../middleware/arcjet.middlewar.js";
+
 
 const messageRoutes=express.Router();
 
-
-messageRoutes.get("/send",(req,res)=>{
-    res.send("Send Message endpoint")
-})
-
-messageRoutes.get("/login",(req,res)=>{
-    res.send("Login endpoint")
-})
-
-messageRoutes.get("/logout",(req,res)=>{
-    res.send("Logout endpoint")
-})
+// All cont6acts who have logged in 
+messageRoutes.get("/contacts",arcjetProtection,protectRoute,getAllContacts);
+// all conatcts we have been chating
+messageRoutes.get("/chats",arcjetProtection,protectRoute,getChatPartners);
+// see all message between user and other user
+messageRoutes.get("/:id",arcjetProtection,protectRoute,getMessagesByUserId);
+// send message to the user
+messageRoutes.post("/send/:id",arcjetProtection,protectRoute,sendMessage)
 
 export default messageRoutes;
