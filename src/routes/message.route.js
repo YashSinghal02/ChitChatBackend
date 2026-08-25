@@ -6,13 +6,13 @@ import { arcjetProtection } from "../middleware/arcjet.middlewar.js";
 
 const messageRoutes=express.Router();
 
-// All cont6acts who have logged in 
+// All contacts who have logged in 
 messageRoutes.get("/contacts",arcjetProtection,protectRoute,getAllContacts);
-// all conatcts we have been chating
+// all contacts we have been chating
 messageRoutes.get("/chats",arcjetProtection,protectRoute,getChatPartners);
 // see all message between user and other user
 messageRoutes.get("/:id",arcjetProtection,protectRoute,getMessagesByUserId);
 // send message to the user
-messageRoutes.post("/send/:id",arcjetProtection,protectRoute,sendMessage)
+messageRoutes.post("/send/:id",protectRoute,sendMessage)
 
 export default messageRoutes;

@@ -71,7 +71,7 @@ export const getAllContacts=async (req,res) => {
 
         let imaegUrl;
         if (image) {
-            const uploadResponse = await cloudinary.uploader.upload(profilePic);
+            const uploadResponse = await cloudinary.uploader.upload(image);
             imaegUrl=uploadResponse.secure_url;
         }
         const newMessage=new Message({
@@ -85,12 +85,12 @@ export const getAllContacts=async (req,res) => {
         res.status(201).json(newMessage);
         
     } catch (error) {
-      console.log("Error in sendMessage controller:",error.message);
+      console.log("Error in sendMessage controller:",error);
     res.status(500).json({message:"Internal Server Error"});  
     }
    }
 
-//    When the logged-in user opens the chat section,  he can See the received messages or send messages   And then I extract that particular partner and I use map because there can be multiple partner if the Sender ID equal to the logged in  user ID Then it take receiver ID otherwise it takes sender ID and then I use set to remove duplicate partner Id and multiple same messages and then I used to fetch those partner Id from the user collection
+//    When the logged-in user opens the chat section,  he is logged in it can be a  sender or receiver And then I extract that particular partner and I use map because there can be multiple partner if the Sender ID equal to the logged in  user ID Then it take receiver ID otherwise it takes sender ID and then I use set to remove duplicate partner Id and multiple same messages and then I used to fetch those partner Id from the user collection
    export const getChatPartners=async (req,res) => {
     try {
         const loggedInUserId=req.user._id;

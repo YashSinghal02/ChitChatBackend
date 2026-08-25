@@ -13,7 +13,7 @@ const authRoutes=express.Router();
 
 authRoutes.post("/signup",arcjetProtection,signup)
 
-authRoutes.post("/login",arcjetProtection,login)
+authRoutes.post("/login",login)
 
 authRoutes.post("/logout",arcjetProtection,logout)
 
