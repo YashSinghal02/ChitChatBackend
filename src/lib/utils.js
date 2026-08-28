@@ -16,8 +16,8 @@ const token=jwt.sign({userId},ENV.JWT_SECRET,{
 res.cookie("jwt",token,{
     maxAge:7*24*60*60*1000,//milliseconds
     httpOnly:true,//prevent XSS attack: Cross-Site Scripting(this token avaliable only httponly no javascript)
-    sameSite:"strict",//CSRF Attack
-    secure:ENV.NODE_ENV === "development" ?false:true,
+    sameSite:"none",//CSRF Attack
+    secure:true,
 })
 
 return token
