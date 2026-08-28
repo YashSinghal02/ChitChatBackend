@@ -19,6 +19,10 @@ app.use(cors({
 }))
 app.use(express.json({limit:"5mb"}))
 app.use(cookieParser())
+// Default GET route
+app.get("/", (req, res) => {
+    res.send("Server is Running")
+})
 app.use("/api/auth",authRoutes)
 app.use("/api/message",messageRoutes)
 
