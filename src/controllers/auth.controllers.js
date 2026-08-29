@@ -107,9 +107,16 @@ export const login = async (req, res) => {
 };
 
 export const logout = async (_, res) => {
-  // this jwt token we send in cookies and we want to get rid of it
-  res.cookie("jwt", "", { maxAge: 0 });
-  res.status(200).json({ message: "Logged out Successfully" });
+  res.cookie("jwt", "", {
+    maxAge: 0,
+    httpOnly: true,
+    sameSite: "none",
+    secure: true,
+  });
+
+  res.status(200).json({
+    message: "Logged out Successfully",
+  });
 };
 
 export const updateProfile = async (req, res) => {
