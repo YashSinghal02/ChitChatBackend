@@ -2,48 +2,295 @@ export function createWelcomeEmailTemplate(name, clientURL) {
   return `
   <!DOCTYPE html>
   <html lang="en">
+
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome to ChitChat</title>
   </head>
-  <body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f5f5f5;">
-    <div style="background: linear-gradient(to right, #36D1DC, #5B86E5); padding: 30px; text-align: center; border-radius: 12px 12px 0 0;">
-      <img src="https://img.freepik.com/free-vector/hand-drawn-message-element-vector-cute-sticker_53876-118344.jpg?t=st=1741295028~exp=1741298628~hmac=0d076f885d7095f0b5bc8d34136cd6d64749455f8cb5f29a924281bafc11b96c&w=1480" alt="Messenger Logo" style="width: 80px; height: 80px; margin-bottom: 20px; border-radius: 50%; background-color: white; padding: 10px;">
-      <h1 style="color: white; margin: 0; font-size: 28px; font-weight: 500;">Welcome to Messenger!</h1>
-    </div>
-    <div style="background-color: #ffffff; padding: 35px; border-radius: 0 0 12px 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-      <p style="font-size: 18px; color: #5B86E5;"><strong>Hello ${name},</strong></p>
-      <p>We're excited to have you join our messaging platform! Messenger connects you with friends, family, and colleagues in real-time, no matter where they are.</p>
-      
-      <div style="background-color: #f8f9fa; padding: 25px; border-radius: 10px; margin: 25px 0; border-left: 4px solid #36D1DC;">
-        <p style="font-size: 16px; margin: 0 0 15px 0;"><strong>Get started in just a few steps:</strong></p>
-        <ul style="padding-left: 20px; margin: 0;">
-          <li style="margin-bottom: 10px;">Set up your profile picture</li>
-          <li style="margin-bottom: 10px;">Find and add your contacts</li>
-          <li style="margin-bottom: 10px;">Start a conversation</li>
-          <li style="margin-bottom: 0;">Share photos, videos, and more</li>
-        </ul>
-      </div>
-      
-      <div style="text-align: center; margin: 30px 0;">
-        <a href=${clientURL} style="background: linear-gradient(to right, #36D1DC, #5B86E5); color: white; text-decoration: none; padding: 12px 30px; border-radius: 50px; font-weight: 500; display: inline-block;">Open Messenger</a>
-      </div>
-      
-      <p style="margin-bottom: 5px;">If you need any help or have questions, we're always here to assist you.</p>
-      <p style="margin-top: 0;">Happy messaging!</p>
-      
-      <p style="margin-top: 25px; margin-bottom: 0;">Best regards,<br>The Messenger Team</p>
-    </div>
-    
-    <div style="text-align: center; padding: 20px; color: #999; font-size: 12px;">
-      <p>© 2025 Messenger. All rights reserved.</p>
-      <p>
-        <a href="#" style="color: #5B86E5; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
-        <a href="#" style="color: #5B86E5; text-decoration: none; margin: 0 10px;">Terms of Service</a>
-        <a href="#" style="color: #5B86E5; text-decoration: none; margin: 0 10px;">Contact Us</a>
-      </p>
-    </div>
+
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #05030a;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #ffffff;
+    "
+  >
+
+    <table
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      border="0"
+      style="
+        background-color: #05030a;
+        width: 100%;
+      "
+    >
+      <tr>
+        <td
+          align="center"
+          style="padding: 45px 15px;"
+        >
+
+          <!-- Main Email -->
+          <table
+            width="100%"
+            cellpadding="0"
+            cellspacing="0"
+            border="0"
+            style="
+              max-width: 570px;
+              background-color: #0b0813;
+              border: 1px solid #2e2145;
+              border-radius: 16px;
+              overflow: hidden;
+            "
+          >
+
+            <!-- Header -->
+            <tr>
+              <td
+                align="center"
+                style="
+                  padding: 38px 30px 30px;
+                "
+              >
+
+                <!-- Logo with Transparent Purple Circle -->
+                <table
+                  cellpadding="0"
+                  cellspacing="0"
+                  border="0"
+                  align="center"
+                  style="margin: 0 auto 18px;"
+                >
+                  <tr>
+                    <td
+                      align="center"
+                      valign="middle"
+                      style="
+                        width: 90px;
+                        height: 90px;
+                        background-color: rgba(112, 79, 220, 0.12);
+                        border: 1px solid rgba(112, 79, 220, 0.22);
+                        border-radius: 50%;
+                      "
+                    >
+
+                      <img
+                        src="https://github.com/YashSinghal02/ChitChatFrontend/blob/main/public/loadingIcon.png?raw=true"
+                        alt="ChitChat"
+                        width="72"
+                        height="72"
+                        style="
+                          display: block;
+                          width: 72px;
+                          height: 72px;
+                          margin: 0 auto;
+                          border-radius: 15px;
+                        "
+                      />
+
+                    </td>
+                  </tr>
+                </table>
+
+
+                <!-- Heading -->
+                <h1
+                  style="
+                    margin: 0;
+                    color: #ffffff;
+                    font-size: 27px;
+                    line-height: 1.3;
+                    font-weight: 600;
+                    letter-spacing: -0.3px;
+                  "
+                >
+                  Welcome to ChitChat
+                </h1>
+
+
+                <!-- Subtitle -->
+                <p
+                  style="
+                    margin: 9px 0 0;
+                    color: #8f87a3;
+                    font-size: 14px;
+                    line-height: 1.5;
+                  "
+                >
+                  Your conversations start here.
+                </p>
+
+              </td>
+            </tr>
+
+
+            <!-- Divider -->
+            <tr>
+              <td style="padding: 0 35px;">
+
+                <div
+                  style="
+                    height: 1px;
+                    background-color: #211b30;
+                    font-size: 0;
+                  "
+                ></div>
+
+              </td>
+            </tr>
+
+
+            <!-- Content -->
+            <tr>
+              <td
+                style="
+                  padding: 32px 40px 10px;
+                "
+              >
+
+                <!-- Greeting -->
+                <p
+                  style="
+                    margin: 0 0 18px;
+                    color: #ffffff;
+                    font-size: 16px;
+                    line-height: 1.6;
+                  "
+                >
+                  Hello <strong>${name}</strong>,
+                </p>
+
+
+                <!-- Message -->
+                <p
+                  style="
+                    margin: 0 0 18px;
+                    color: #aaa2b9;
+                    font-size: 14px;
+                    line-height: 1.8;
+                  "
+                >
+                  Welcome to ChitChat. Your account has been successfully
+                  created and you're ready to start chatting.
+                </p>
+
+
+                <p
+                  style="
+                    margin: 0;
+                    color: #aaa2b9;
+                    font-size: 14px;
+                    line-height: 1.8;
+                  "
+                >
+                  Find your contacts, start a conversation, and stay connected
+                  in real time.
+                </p>
+
+              </td>
+            </tr>
+
+
+            <!-- CTA -->
+            <tr>
+              <td
+                align="center"
+                style="
+                  padding: 30px 40px 35px;
+                "
+              >
+
+                <a
+                  href="${clientURL}"
+                  style="
+                    display: inline-block;
+                    background-color: #533993;
+                    color: #ffffff;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 600;
+                    padding: 12px 28px;
+                    border-radius: 7px;
+                  "
+                >
+                  Open ChitChat
+                </a>
+
+              </td>
+            </tr>
+
+
+            <!-- Small Note -->
+            <tr>
+              <td
+                align="center"
+                style="
+                  padding: 0 35px 32px;
+                "
+              >
+
+                <p
+                  style="
+                    margin: 0;
+                    color: #6f687c;
+                    font-size: 12px;
+                    line-height: 1.6;
+                  "
+                >
+                  We're glad to have you here.
+                </p>
+
+              </td>
+            </tr>
+
+
+            <!-- Footer -->
+            <tr>
+              <td
+                style="
+                  border-top: 1px solid #211b30;
+                  padding: 20px 30px;
+                  text-align: center;
+                  background-color: #08060d;
+                "
+              >
+
+                <p
+                  style="
+                    margin: 0 0 6px;
+                    color: #756d82;
+                    font-size: 11px;
+                  "
+                >
+                  © 2026 ChitChat
+                </p>
+
+
+                <p
+                  style="
+                    margin: 0;
+                    color: #514b5c;
+                    font-size: 10px;
+                  "
+                >
+                  This is an automated email from ChitChat.
+                </p>
+
+              </td>
+            </tr>
+
+          </table>
+
+        </td>
+      </tr>
+    </table>
+
   </body>
   </html>
   `;
